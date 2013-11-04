@@ -2,11 +2,12 @@
 Assetfy is a open source library that converts flash MovieClip into Starling object formats.
 You can do your animations with Flash Professional IDE and exports SWF or a SWC file to use in your Starling project.
 
-**Why should i convert a Flash MovieClip instead of using the standard workflow of Starling?**
-- Flash MovieClip can be drawn with vectors. Resize friendly!
-- Flash MovieClip can contain action script in their frames. You can manipulate TextFields, Sprites and sub MovieClip animations of your MovieClip.
-- Flash MovieClip can contain effects, filters and color corrections. In the end it will become drawned into a single Bitmap.
-- You only need to change your MovieClip animation and export it again... Is not necessary to generate SpriteSheet Bitmap and XML to import in Starling.
+**Why should I convert a Flash MovieClip instead of using the standard workflow of Starling?**
+- Flash MovieClips can be drawn with vectors. Resize friendly!
+- Flash MovieClips can contain action script in their frames. You can manipulate TextFields, Sprites and sub MovieClip animations of your MovieClip.
+- Flash MovieClips can contain effects, filters and color corrections. In the end it will be drawn into a single Bitmap.
+- You only need to modify your MovieClip animation and export it again... it’s not necessary to generate a SpriteSheet Bitmap and XML to import in Starling.
+
 
 ## Its easy! Its simple! Its awesome!
 
@@ -31,9 +32,9 @@ addChild(starlingMc);
 
 ### Features
 
-- Acept filters.
-- Acept color effects.
-- SpriteSheets is generated with a retangle paking algorithm.
+- Accept filters.
+- Accept color effects.
+- SpriteSheets is generated with a retangle packing algorithm.
 - Assetfy has a self implementation of a MovieClip Class API.
 - Simple API usage.
 
@@ -47,7 +48,7 @@ TextureAtlas        (starling.textures.TextureAtlas)
 AssetfyMovieClip    (assetfy.display.AssetfyMovieClip)
 ```
 
-**Assetfy is helpful for automate spritesheets for character animations and flatten layout components. Not is useful for complex animations like "history video".**
+**Assetfy is helpful to automate spritesheets for character animations and flatten layout components. It is not useful for complex animations like "history video".**
 
 ### Requirements
 You need to add the Starling lib in your project.
@@ -104,18 +105,18 @@ Each MovieClip in linkage should implement a class that extends one of the optio
 ### The AssetfyMovieClip object (minimalist API)
 ```actionscript
 // You can set the FPS at anytime
-assetfyMc.fps = 60; // A integer number of indicate the FPS of the AssetfyMovieClip
+assetfyMc.fps = 60; // An integer number that indicate the FPS of the AssetfyMovieClip
 
 /**
  * assetfyMc.play(label:String [, fps:int]):AssetfyMovieClip
  */
-// You can play a animation once
+// You can play an animation once
 assetfyMc.play('animation_name');
 
-// You can play a animation once and set the FPS
+// You can play an animation once and set the FPS
 assetfyMc.play('animation_name', 24);
 
-// You can play a animation once with a callback
+// You can play an animation once with a callback
 assetfyMc
     .play('animation_name', 24)
     .onComplete(function():void { trace('Animation complete!'); });
@@ -123,10 +124,10 @@ assetfyMc
 /**
  * assetfyMc.loop(label:String [, fps:int]):void
  */
-// You can play a animation in loop
+// You can play an animation in loop
 assetfyMc.loop('animation_name');
 
-// You can play a animation in loop and set the FPS
+// You can play an animation in loop and set the FPS
 assetfyMc.loop('animation_name', 24);
 
 ...
@@ -139,7 +140,7 @@ assetfyMc.resume();
 // You can stop the current animation (reset frame index)
 assetfyMc.stop();
 
-// If you have various equal MovieClips, use the "clone" method, its solve a lot of memory and performance is much better
+// If you have various equal MovieClips, use the "clone" method, it saves a lot of memory and performance is much better
 var assetfyMcBase:AssetfyMovieClip,
     assetfyMc:AssetfyMovieClip;
 
@@ -151,7 +152,7 @@ for (var i = 0; i < 40; i++){
 }
 ```
 
-### Why AssetfyMovieClip is not simply called MoiveClip?
+### Why isn't AssetfyMovieClip simply called MovieClip?
 AssetfyMovieClip has a personal API, so there is no risk of confusion with the Starling MovieClip instance and API.
 
 ## How to prepare the flash MovieClip to be converted by Assetfy?
@@ -182,7 +183,7 @@ Starling.juggler.add(starlingMc);
 
 addChild(starlingMc);
 
-// With Assetfy (You can embed SWF from code, SWC file or load a external file)
+// With Assetfy (You can embed SWF from code, SWC file or load an external file)
 var mc:MyFlashMovieClip     = new MyFlashMovieClip;
 var ta:TextureAtlas         = Assetfy.me(mc, Assetfy.types.TEXTURE_ATLAS);
 var starlingMc:MovieClip    = new MovieClip(ta.getTextures('default'), Starling.current.nativeStage.frameRate);
@@ -203,13 +204,13 @@ addChild(assetfyMc);
 ```
 
 
-### Imagine to play 2 animations in sequence...
+### Imagine playing 2 animations in sequence...
 
 
 # Next steps
 
-- Create a API for sounds in AssetfyMovieClip.
+- Create an API for sounds in AssetfyMovieClip.
 - Add Bitmap font support.
 - ...
 
-**Send yours ideas in the issues list.**
+**Send yours ideas to the issues list.**
